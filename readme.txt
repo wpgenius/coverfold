@@ -4,7 +4,7 @@ Tags: gallery, album, portfolio, lightbox, video gallery
 Requires at least: 6.3
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 2.1.1
+Stable tag: 2.1.2
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -128,6 +128,15 @@ No. Albums are shown only through the block, widget or shortcode. Developers can
 Unminified sources are available at the links above.
 
 == Changelog ==
+
+= 2.1.2 =
+
+* Escape output at the point of echo (late escaping) (#56)
+* Show the Album Station notice only on relevant screens (#57)
+* Sanitize the video position field on save (#58)
+* Describe external services accurately in the readme (#59)
+* Clear scheduled jobs on deactivation and cached video data on uninstall (#60)
+* Tidy the readme changelog and wording (#61)
 
 = 2.1.1 =
 
