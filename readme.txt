@@ -4,7 +4,7 @@ Tags: gallery, album, portfolio, lightbox, video gallery
 Requires at least: 6.3
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 2.1.2
+Stable tag: 2.1.3
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -128,6 +128,12 @@ No. Albums are shown only through the block, widget or shortcode. Developers can
 Unminified sources are available at the links above.
 
 == Changelog ==
+
+= 2.1.3 =
+
+* Use 'block editor' in the plugin header description (#63)
+* Mention page-view requests in the readme external services section (#64)
+* Escape the settings link in the album editor at output (#65)
 
 = 2.1.2 =
 
