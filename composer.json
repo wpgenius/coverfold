@@ -1,6 +1,6 @@
 {
 	"name": "wpgenius/coverfold",
-	"description": "Coverfold: photo and video album gallery for WordPress, with a Gutenberg block and an Elementor widget.",
+	"description": "Coverfold: photo and video album gallery for WordPress, with a block editor block and an Elementor widget.",
 	"type": "wordpress-plugin",
 	"license": "GPL-3.0-or-later",
 	"homepage": "https://github.com/wpgenius/coverfold",
