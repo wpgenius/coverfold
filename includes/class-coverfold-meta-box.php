@@ -147,7 +147,7 @@ class Coverfold_Meta_Box {
 			if ( $is_video ) {
 				echo '<span class="dashicons dashicons-format-video" aria-hidden="true"></span><span class="coverfold-media-item__name">' . esc_html( get_the_title( $id ) ) . '</span>';
 			} else {
-				echo wp_get_attachment_image( $id, 'thumbnail' );
+				echo wp_kses( wp_get_attachment_image( $id, 'thumbnail' ), Coverfold_Renderer::allowed_html() );
 			}
 			?>
 			<button type="button" class="coverfold-media-item__remove" aria-label="<?php esc_attr_e( 'Remove', 'coverfold' ); ?>">&times;</button>
@@ -184,7 +184,7 @@ class Coverfold_Meta_Box {
 		update_post_meta( $post_id, Coverfold_Album::META_VIDEOS, implode( "\n", $links ) );
 		Coverfold_Videos::warm( $links );
 
-		$position = isset( $_POST['coverfold_videos_position'] ) && 'before' === $_POST['coverfold_videos_position'] ? 'before' : 'after';
+		$position = isset( $_POST['coverfold_videos_position'] ) && 'before' === sanitize_key( wp_unslash( $_POST['coverfold_videos_position'] ) ) ? 'before' : 'after';
 		update_post_meta( $post_id, Coverfold_Album::META_VIDEOS_POSITION, $position );
 	}
 }

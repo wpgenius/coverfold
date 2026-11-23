@@ -59,6 +59,47 @@ class Coverfold_Renderer {
 	}
 
 	/**
+	 * HTML allowed in the grid markup, for escaping it with wp_kses() at output.
+	 *
+	 * @return array
+	 */
+	public static function allowed_html() {
+		$allowed = wp_kses_allowed_html( 'post' );
+
+		$allowed['button'] = array_merge(
+			isset( $allowed['button'] ) ? $allowed['button'] : array(),
+			array(
+				'type'         => true,
+				'class'        => true,
+				'aria-label'   => true,
+				'aria-pressed' => true,
+				'data-filter'  => true,
+				'data-items'   => true,
+			)
+		);
+		$allowed['img']    = array_merge(
+			isset( $allowed['img'] ) ? $allowed['img'] : array(),
+			array(
+				'srcset'        => true,
+				'sizes'         => true,
+				'decoding'      => true,
+				'fetchpriority' => true,
+			)
+		);
+		$allowed['div']    = array_merge(
+			isset( $allowed['div'] ) ? $allowed['div'] : array(),
+			array( 'data-coverfold' => true )
+		);
+
+		/**
+		 * Filters the HTML allowed in the album grid output.
+		 *
+		 * @param array $allowed Allowed tags and attributes, as for wp_kses().
+		 */
+		return apply_filters( 'coverfold_allowed_html', $allowed );
+	}
+
+	/**
 	 * Interpret yes/no style values.
 	 *
 	 * @param mixed $value Value.

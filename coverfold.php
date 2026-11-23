@@ -45,4 +45,4 @@ Coverfold_Migration::init();
 Coverfold_Elementor::init();
 
 register_activation_hook( __FILE__, array( 'Coverfold_Migration', 'activate' ) );
-register_deactivation_hook( __FILE__, 'flush_rewrite_rules' );
+register_deactivation_hook( __FILE__, array( 'Coverfold_Videos', 'deactivate' ) );

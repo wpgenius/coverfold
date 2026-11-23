@@ -610,6 +610,6 @@ class Coverfold_Elementor_Widget extends Widget_Base {
 			'download'               => $this->on( $s, 'download' ),
 		);
 
-		echo Coverfold_Renderer::render( $args ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Escaped in the renderer.
+		echo wp_kses( Coverfold_Renderer::render( $args ), Coverfold_Renderer::allowed_html() );
 	}
 }
