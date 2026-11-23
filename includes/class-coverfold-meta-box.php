@@ -98,10 +98,13 @@ class Coverfold_Meta_Box {
 				<?php if ( ! $has_key ) : ?>
 					<br />
 					<?php
-					printf(
-						/* translators: %s: link to the settings page. */
-						esc_html__( 'YouTube playlists need an API key in %s.', 'coverfold' ),
-						'<a href="' . esc_url( admin_url( 'edit.php?post_type=' . Coverfold_Post_Type::POST_TYPE . '&page=' . Coverfold_Settings::PAGE ) ) . '">' . esc_html__( 'Settings', 'coverfold' ) . '</a>'
+					echo wp_kses(
+						sprintf(
+							/* translators: %s: link to the settings page. */
+							esc_html__( 'YouTube playlists need an API key in %s.', 'coverfold' ),
+							'<a href="' . esc_url( admin_url( 'edit.php?post_type=' . Coverfold_Post_Type::POST_TYPE . '&page=' . Coverfold_Settings::PAGE ) ) . '">' . esc_html__( 'Settings', 'coverfold' ) . '</a>'
+						),
+						array( 'a' => array( 'href' => array() ) )
 					);
 					?>
 				<?php endif; ?>

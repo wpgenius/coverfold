@@ -4,7 +4,7 @@
 
 [![Try it in your browser](https://img.shields.io/badge/WordPress_Playground-Try_it_in_your_browser-3858e9?logo=wordpress)](https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/wpgenius/coverfold/main/.wordpress-org/blueprints/blueprint.json)
 
-Coverfold shows a filterable grid of album covers. Click a cover and the whole album (photos, Media Library videos, YouTube, YouTube playlists and Vimeo) opens in a [Foldbox](https://github.com/wpgenius/foldbox) lightbox. Use it as a Gutenberg block, an Elementor widget or the `[coverfold]` shortcode.
+Coverfold shows a filterable grid of album covers. Click a cover and the whole album (photos, Media Library videos, YouTube, YouTube playlists and Vimeo) opens in a [Foldbox](https://github.com/wpgenius/foldbox) lightbox. Use it as a block editor block, an Elementor widget or the `[coverfold]` shortcode.
 
 Coverfold is the successor of Album Station and migrates its albums automatically.
 
@@ -18,7 +18,7 @@ Coverfold is the successor of Album Station and migrates its albums automaticall
 | `includes/class-coverfold-album.php` | Album data and lightbox items |
 | `includes/class-coverfold-videos.php` | YouTube / playlist / Vimeo parsing and cached remote data |
 | `includes/class-coverfold-renderer.php` | Shared grid markup for block, widget and shortcode |
-| `includes/class-coverfold-block.php`, `blocks/album-grid/` | Gutenberg block (plain JS, no build step) |
+| `includes/class-coverfold-block.php`, `blocks/album-grid/` | Block editor block (plain JS, no build step) |
 | `includes/elementor/` | Elementor widget (+ hidden Album Station compatibility widget) |
 | `includes/class-coverfold-shortcode.php` | `[coverfold]` and legacy `[feature_album]` |
 | `includes/class-coverfold-migration.php` | One-time Album Station migration |
