@@ -269,6 +269,7 @@ class Coverfold_Migration {
 		}
 
 		$touched = array();
+		$recount = array();
 
 		foreach ( $rows as $row ) {
 			$ttid    = (int) $row->term_taxonomy_id;
@@ -293,6 +294,7 @@ class Coverfold_Migration {
 					array( '%d' )
 				);
 				$touched[] = $term_id;
+				$recount[] = $ttid;
 				continue;
 			}
 
@@ -331,17 +333,12 @@ class Coverfold_Migration {
 			);
 			$touched[] = $term_id;
 			$touched[] = $copy_id;
+			$recount[] = $ttid;
+			$recount[] = $copy_ttid;
 		}
-
-		// Recount every term involved, in both taxonomies.
-		$wpdb->query(
-			$wpdb->prepare(
-				"UPDATE {$wpdb->term_taxonomy} SET count = ( SELECT COUNT(*) FROM {$wpdb->term_relationships} WHERE {$wpdb->term_relationships}.term_taxonomy_id = {$wpdb->term_taxonomy}.term_taxonomy_id ) WHERE taxonomy IN ( %s, %s )",
-				self::LEGACY_TAXONOMY,
-				Coverfold_Post_Type::TAXONOMY
-			)
-		);
 		// phpcs:enable
+
+		self::recount_terms( $recount );
 
 		$touched = array_values( array_unique( $touched ) );
 		clean_term_cache( $touched, self::LEGACY_TAXONOMY );
@@ -349,6 +346,28 @@ class Coverfold_Migration {
 		clean_object_term_cache( $album_ids, Coverfold_Post_Type::POST_TYPE );
 		delete_option( self::LEGACY_TAXONOMY . '_children' );
 		delete_option( Coverfold_Post_Type::TAXONOMY . '_children' );
+	}
+
+	/**
+	 * Recount the given terms the way WordPress does: published posts only.
+	 * Only terms the migration moved or copied are touched.
+	 *
+	 * @param int[] $tt_ids Term taxonomy IDs.
+	 */
+	private static function recount_terms( array $tt_ids ) {
+		global $wpdb;
+
+		foreach ( array_unique( array_map( 'intval', $tt_ids ) ) as $tt_id ) {
+			// phpcs:disable WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching -- One-time migration; album_category may be unregistered, so wp_update_term_count_now() can't be used.
+			$count = (int) $wpdb->get_var(
+				$wpdb->prepare(
+					"SELECT COUNT(*) FROM {$wpdb->term_relationships} tr INNER JOIN {$wpdb->posts} p ON p.ID = tr.object_id WHERE tr.term_taxonomy_id = %d AND p.post_status = 'publish'",
+					$tt_id
+				)
+			);
+			$wpdb->update( $wpdb->term_taxonomy, array( 'count' => $count ), array( 'term_taxonomy_id' => $tt_id ), array( '%d' ), array( '%d' ) );
+			// phpcs:enable
+		}
 	}
 
 	/**

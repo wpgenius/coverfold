@@ -26,7 +26,7 @@ class Coverfold_Post_Type {
 		add_action( 'manage_' . self::POST_TYPE . '_posts_custom_column', array( __CLASS__, 'column_content' ), 10, 2 );
 		add_filter( 'enter_title_here', array( __CLASS__, 'title_placeholder' ), 10, 2 );
 		add_action( 'saved_' . self::TAXONOMY, array( __CLASS__, 'keep_category_top_level' ), 10, 2 );
-		add_action( 'admin_head', array( __CLASS__, 'hide_parent_category_fields' ) );
+		add_action( 'admin_enqueue_scripts', array( __CLASS__, 'hide_parent_category_fields' ) );
 	}
 
 	/**
@@ -54,7 +54,7 @@ class Coverfold_Post_Type {
 	}
 
 	/**
-	 * Hide the Parent fields for album categories.
+	 * Hide the Parent fields on the album category screens and the album editor.
 	 */
 	public static function hide_parent_category_fields() {
 		$screen = function_exists( 'get_current_screen' ) ? get_current_screen() : null;
@@ -62,10 +62,15 @@ class Coverfold_Post_Type {
 			return;
 		}
 		if ( self::TAXONOMY === $screen->taxonomy && in_array( $screen->base, array( 'edit-tags', 'term' ), true ) ) {
-			echo '<style>.term-parent-wrap{display:none}</style>';
+			$css = '.taxonomy-' . self::TAXONOMY . ' .term-parent-wrap{display:none}';
 		} elseif ( 'post' === $screen->base && self::POST_TYPE === $screen->post_type ) {
-			echo '<style>#new' . esc_attr( self::TAXONOMY ) . '_parent{display:none}</style>';
+			$css = '#new' . self::TAXONOMY . '_parent{display:none}';
+		} else {
+			return;
 		}
+		wp_register_style( 'coverfold-category', false, array(), COVERFOLD_VERSION );
+		wp_enqueue_style( 'coverfold-category' );
+		wp_add_inline_style( 'coverfold-category', $css );
 	}
 
 	/**
