@@ -26,6 +26,14 @@ class Coverfold_Videos {
 	}
 
 	/**
+	 * Plugin deactivation: remove scheduled background refreshes.
+	 */
+	public static function deactivate() {
+		wp_unschedule_hook( self::REFRESH_HOOK );
+		flush_rewrite_rules();
+	}
+
+	/**
 	 * Background refresh of one cached entry (WP-Cron).
 	 *
 	 * @param string $type playlist|vimeo.

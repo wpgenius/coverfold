@@ -8,7 +8,7 @@ Stable tag: 2.1.1
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
-Stunning photo and video albums. One cover image opens the full album in a popup, with a filterable grid for Elementor and Gutenberg.
+Stunning photo and video albums. One cover image opens the full album in a popup, with a filterable grid for Elementor and the block editor.
 
 == Description ==
 
@@ -29,7 +29,7 @@ It suits photographers, studios, agencies, event organisers, schools and anyone 
 * **Photos and videos together.** Media Library images and MP4/WebM videos, YouTube videos, YouTube playlists and Vimeo videos.
 * **Lightbox** powered by Foldbox, with thumbnails, zoom, fullscreen, slideshow, captions, swipe and keyboard support.
 * **Category filters** with smooth animations. Only categories that have albums in the grid are shown.
-* **Gutenberg block** with live preview.
+* **Block editor block** with live preview.
 * **Elementor widget** with full style controls for cards, titles and filter buttons.
 * **Shortcode** for any other page builder or theme.
 * **Responsive columns** for desktop, tablet and mobile.
@@ -70,9 +70,11 @@ Coverfold is the new name of Album Station. When you activate Coverfold it moves
 Coverfold connects to these services only when an album contains the matching video links:
 
 * **YouTube** – Thumbnails load from `i.ytimg.com` when a visitor opens an album, and videos play in an embedded YouTube player (`youtube-nocookie.com`) once the visitor presses play. For YouTube playlists, your site calls the YouTube Data API (`googleapis.com`) with your API key and the playlist ID to list the videos; results are cached for 12 hours. [YouTube Terms of Service](https://www.youtube.com/t/terms), [Google Privacy Policy](https://policies.google.com/privacy).
-* **Vimeo** – Your site calls Vimeo's oEmbed endpoint (`vimeo.com/api/oembed.json`) with the video URL to get its title and thumbnail; results are cached for 12 hours. Videos play in an embedded Vimeo player once the visitor presses play. [Vimeo Terms of Service](https://vimeo.com/terms), [Vimeo Privacy Policy](https://vimeo.com/privacy).
+* **Vimeo** – Your site calls Vimeo's oEmbed endpoint (`vimeo.com/api/oembed.json`) with the video URL to get its title and thumbnail; results are cached for 12 hours. Thumbnails load from `i.vimeocdn.com` when a visitor opens an album, and videos play in an embedded Vimeo player (`player.vimeo.com`) once the visitor presses play. [Vimeo Terms of Service](https://vimeo.com/terms), [Vimeo Privacy Policy](https://vimeo.com/privacy).
 
-No data about your visitors is sent by the plugin itself. Embedded players are loaded by the visitor's browser only after they press play.
+Requests from your site (YouTube Data API and Vimeo oEmbed) happen when you save an album and, after the 12-hour cache expires, in the background through WP-Cron. They send only the playlist ID or video URL (and, for YouTube, your API key), never visitor data.
+
+Thumbnails and embedded players are loaded directly by the visitor's browser, so YouTube or Vimeo receive the visitor's IP address and browser details as with any embedded image. Thumbnails load when the visitor opens an album; players load only after the visitor presses play.
 
 == Installation ==
 
@@ -129,8 +131,8 @@ Unminified sources are available at the links above.
 
 = 2.1.1 =
 
-* Migration recounts every legacy category, including drafts and trash (#53)
-* Print the hidden Parent field CSS with wp_add_inline_style (#54)
+* Fixed: migration now recounts only the categories it moved or copied (#53)
+* Changed: the CSS that hides the category Parent field is added with wp_add_inline_style() (#54)
 
 = 2.1.0 =
 
@@ -143,26 +145,26 @@ Unminified sources are available at the links above.
 
 = 1.0.5 =
 
-* Album pages go empty if the plugin is activated while Album Station is still active (#43)
-* Pages can load slowly when cached Vimeo and YouTube playlist data expires (#44)
-* The lightbox loads full-size original images (#45)
-* A fast double-click opens two lightboxes (#46)
-* Vimeo video thumbnail is blank when Vimeo does not answer (#47)
-* Album categories should be top-level only (#48)
+* Fixed: album pages no longer go empty when Coverfold is activated while Album Station is still active (#43)
+* Fixed: expired Vimeo and YouTube playlist data refreshes in the background instead of slowing page loads (#44)
+* Fixed: the lightbox loads a 2048px image with srcset instead of the full-size original (#45)
+* Fixed: a fast double-click no longer opens two lightboxes (#46)
+* Fixed: Vimeo thumbnails fall back to the video icon when Vimeo does not answer (#47)
+* Changed: album categories are top-level only (#48)
 
 = 1.0.4 =
 
-* Category migration moves terms used by content that is not migrated (#40)
-* Videos::parse() fatal error on array-valued URL parameters (#41)
+* Fixed: category migration moves only the terms used by migrated albums (#40)
+* Fixed: a fatal error when a video URL has array-valued parameters (#41)
 
 = 1.0.3 =
 
-* Plugin URI and Author URI must differ (#35)
+* Changed: Plugin URI and Author URI now point to different pages (#35)
 
 = 1.0.2 =
 
-* Dragging photos sideways in the album editor doesn't reorder them (#32)
-* Uploaded videos without a poster look like a copy of the album cover (#33)
+* Fixed: dragging photos sideways in the album editor reorders them (#32)
+* Fixed: uploaded videos without a poster no longer borrow the album cover; the thumbnail strip shows a video icon (#33)
 
 = 1.0.1 =
 
@@ -172,9 +174,6 @@ Unminified sources are available at the links above.
 
 = 1.0.0 =
 
-* Initial release.
-
-= 1.0.0 =
 * Album Station is now Coverfold, rebuilt from the ground up.
 * New: Coverfold Albums block for the block editor.
 * New: Media Library videos, cached YouTube playlists, and Vimeo titles and thumbnails.

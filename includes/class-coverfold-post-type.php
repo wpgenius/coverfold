@@ -194,7 +194,7 @@ class Coverfold_Post_Type {
 	 */
 	public static function column_content( $column, $post_id ) {
 		if ( 'coverfold_cover' === $column ) {
-			echo get_the_post_thumbnail( $post_id, array( 60, 60 ) );
+			echo wp_kses( get_the_post_thumbnail( $post_id, array( 60, 60 ) ), Coverfold_Renderer::allowed_html() );
 		} elseif ( 'coverfold_items' === $column ) {
 			$media  = Coverfold_Album::get_media_ids( $post_id );
 			$videos = Coverfold_Album::get_video_links( $post_id );

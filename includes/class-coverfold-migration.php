@@ -394,10 +394,14 @@ class Coverfold_Migration {
 	}
 
 	/**
-	 * While Album Station is active, ask to deactivate it.
+	 * While Album Station is active, ask to deactivate it (Plugins, Dashboard and Coverfold screens only).
 	 */
 	public static function legacy_active_notice() {
 		if ( ! self::legacy_plugin_active() || ! current_user_can( 'activate_plugins' ) ) {
+			return;
+		}
+		$screen = function_exists( 'get_current_screen' ) ? get_current_screen() : null;
+		if ( ! $screen || ! ( in_array( $screen->id, array( 'plugins', 'dashboard' ), true ) || false !== strpos( $screen->id, 'coverfold' ) ) ) {
 			return;
 		}
 
