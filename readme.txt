@@ -63,7 +63,7 @@ Example: `[coverfold category="weddings,events" columns="4" filters="yes" count=
 
 = Coming from Album Station? =
 
-Coverfold is the new name of Album Station. When you activate Coverfold it moves your albums, categories, videos and YouTube API key over automatically. Pages built with the old Elementor widget or the `[feature_album]` shortcode keep working. Once you see the notice, deactivate and delete Album Station.
+Coverfold is the new name of Album Station. Coverfold moves your albums, categories, videos and YouTube API key over automatically once Album Station is deactivated: right away if it already is when you activate Coverfold, otherwise as soon as you deactivate it. While Album Station is still active, a notice reminds you to deactivate it. Pages built with the old Elementor widget or the `[feature_album]` shortcode keep working. After the move you can delete Album Station.
 
 == External services ==
 
