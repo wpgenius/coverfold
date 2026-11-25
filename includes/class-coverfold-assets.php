@@ -13,7 +13,7 @@ defined( 'ABSPATH' ) || exit;
  */
 class Coverfold_Assets {
 
-	const FOLDBOX_VERSION = '1.1.1';
+	const FOLDBOX_VERSION = '1.2.0';
 
 	/**
 	 * Hook everything up.

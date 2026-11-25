@@ -98,6 +98,9 @@ jobs:
 
       - run: npm run lint
 
+      # assets/vendor/foldbox ships in the plugin; it must match the installed npm package.
+      - run: npm run vendor:foldbox:check
+
 
   plugin-check:
     name: Plugin Check

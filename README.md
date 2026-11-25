@@ -22,7 +22,7 @@ Coverfold is the successor of Album Station and migrates its albums automaticall
 | `includes/elementor/` | Elementor widget (+ hidden Album Station compatibility widget) |
 | `includes/class-coverfold-shortcode.php` | `[coverfold]` and legacy `[feature_album]` |
 | `includes/class-coverfold-migration.php` | One-time Album Station migration |
-| `assets/vendor/` | Foldbox 1.1.1 (MIT): lightbox and animated filter |
+| `assets/vendor/foldbox/` | Foldbox 1.2.0 (MIT): lightbox and animated filter, copied from the npm package |
 
 ## Try it in your browser
 
@@ -53,6 +53,16 @@ composer install && npm ci
 | `composer phpstan` | Static analysis |
 | `composer test` | Unit tests |
 | `npm run lint` | JS and CSS (Node 22.12 or newer) |
+
+### Updating Foldbox
+
+[Foldbox](https://www.npmjs.com/package/foldbox) is an npm dependency. The plugin ships a copy of its built files in `assets/vendor/foldbox/`, because the release zip has no `node_modules`. After changing its version in `package.json` (Dependabot opens a monthly PR for it), run:
+
+```bash
+npm ci && npm run vendor:foldbox
+```
+
+and commit the result. This copies `foldbox.min.js`, `foldbox.min.css` and `LICENSE`, and updates the Foldbox version in `class-coverfold-assets.php`, `readme.txt` and this README. CI (`npm run vendor:foldbox:check`) fails while the shipped copy differs from the installed package.
 
 A local site: `cp .env.example .env && docker compose up -d`, then open http://localhost:8000.
 

@@ -11,9 +11,14 @@
 		"lint": "npm run lint:js && npm run lint:css",
 		"lint:js": "wp-scripts lint-js assets/js blocks",
 		"lint:css": "wp-scripts lint-style \"assets/css/**/*.css\"",
-		"format": "wp-scripts format assets/js assets/css blocks"
+		"format": "wp-scripts format assets/js assets/css blocks",
+		"vendor:foldbox": "node bin/vendor-foldbox.mjs",
+		"vendor:foldbox:check": "node bin/vendor-foldbox.mjs --check"
 	},
 	"devDependencies": {
 		"@wordpress/scripts": "^37.1.0"
+	},
+	"dependencies": {
+		"foldbox": "^1.2.0"
 	}
 }
