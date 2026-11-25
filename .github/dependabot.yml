@@ -12,16 +12,22 @@ updates:
     labels:
       - dependencies
 
-  # Dev tools from package.json (@wordpress/scripts and friends), one grouped
-  # PR a month. If CI then says build/ is out of date, check out the PR's
-  # branch, run `npm run build`, and commit the result to it.
+  # npm packages, once a month:
+  # - Foldbox (the lightbox that ships in the plugin) gets its own PR. CI then
+  #   fails until the shipped copy is updated: check out the PR's branch, run
+  #   `npm ci && npm run vendor:foldbox`, and commit the result to it. Merging
+  #   it changes the plugin zip, so it makes a release.
+  # - Dev tools (@wordpress/scripts and friends) come in one grouped PR.
   - package-ecosystem: npm
     directory: /
     schedule:
       interval: monthly
     groups:
+      foldbox:
+        patterns: ['foldbox']
       npm:
         patterns: ['*']
+        exclude-patterns: ['foldbox']
     commit-message:
       prefix: build
     labels:
