@@ -72,10 +72,14 @@ dw_php_codehinting.config
 sftp.json
 
 # --------------------------------------------------
+# Claude Code (the shared skills in .claude/skills/ are committed)
+# --------------------------------------------------
+.claude/settings.local.json
+.claude/worktrees/
+
+# --------------------------------------------------
 # Project-specific (kept from this repo)
 # --------------------------------------------------
 *.swp
 dist/
 *.tar.gz
-.claude/settings.local.json
-.claude/worktrees/
