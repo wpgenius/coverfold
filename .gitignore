@@ -77,4 +77,5 @@ sftp.json
 *.swp
 dist/
 *.tar.gz
-.claude/
+.claude/settings.local.json
+.claude/worktrees/
