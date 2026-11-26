@@ -16,7 +16,7 @@
 		"vendor:foldbox:check": "node bin/vendor-foldbox.mjs --check"
 	},
 	"devDependencies": {
-		"@wordpress/scripts": "^37.1.0"
+		"@wordpress/scripts": "^37.2.0"
 	},
 	"dependencies": {
 		"foldbox": "^1.3.1"
