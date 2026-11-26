@@ -19,6 +19,6 @@
 		"@wordpress/scripts": "^37.1.0"
 	},
 	"dependencies": {
-		"foldbox": "^1.2.0"
+		"foldbox": "^1.3.1"
 	}
 }
