@@ -123,7 +123,7 @@ No. Albums are shown only through the block, widget or shortcode. Developers can
 
 == Third-party libraries ==
 
-* [Foldbox](https://github.com/wpgenius/foldbox) 1.2.0 – MIT
+* [Foldbox](https://github.com/wpgenius/foldbox) 1.3.1 – MIT
 
 Unminified sources are available at the links above.
 

@@ -22,7 +22,7 @@ Coverfold is the successor of Album Station and migrates its albums automaticall
 | `includes/elementor/` | Elementor widget (+ hidden Album Station compatibility widget) |
 | `includes/class-coverfold-shortcode.php` | `[coverfold]` and legacy `[feature_album]` |
 | `includes/class-coverfold-migration.php` | One-time Album Station migration |
-| `assets/vendor/foldbox/` | Foldbox 1.2.0 (MIT): lightbox and animated filter, copied from the npm package |
+| `assets/vendor/foldbox/` | Foldbox 1.3.1 (MIT): lightbox and animated filter, copied from the npm package |
 
 ## Try it in your browser
 
