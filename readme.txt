@@ -4,7 +4,7 @@ Tags: gallery, album, portfolio, lightbox, video gallery
 Requires at least: 6.3
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 2.1.7
+Stable tag: 2.1.8
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -128,6 +128,12 @@ No. Albums are shown only through the block, widget or shortcode. Developers can
 Unminified sources are available at the links above.
 
 == Changelog ==
+
+= 2.1.8 =
+
+* Add WordPress.org directory images (banner, icon, screenshots) (#73)
+* Run the Playground runtime checks in CI (#76)
+* Keep the photo and video count on one line on narrow album cards (#97)
 
 = 2.1.7 =
 
