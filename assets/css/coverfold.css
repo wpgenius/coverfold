@@ -142,7 +142,12 @@
 	position: absolute;
 	left: 10px;
 	bottom: 10px;
+	box-sizing: border-box;
+	max-width: calc(100% - 20px);
+	overflow: hidden;
 	padding: 0.2em 0.7em;
+	text-overflow: ellipsis;
+	white-space: nowrap;
 	font-size: 0.8em;
 	line-height: 1.5;
 	color: #fff;
