@@ -1,6 +1,6 @@
 # Contributing
 
-Thanks for helping improve Coverfold.
+Thanks for helping improve CoverFold.
 
 ## How a change gets in
 

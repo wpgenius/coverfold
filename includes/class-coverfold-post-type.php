@@ -80,7 +80,7 @@ class Coverfold_Post_Type {
 		$labels = array(
 			'name'                  => _x( 'Albums', 'post type general name', 'coverfold' ),
 			'singular_name'         => _x( 'Album', 'post type singular name', 'coverfold' ),
-			'menu_name'             => _x( 'Coverfold', 'admin menu', 'coverfold' ),
+			'menu_name'             => _x( 'CoverFold', 'admin menu', 'coverfold' ),
 			'all_items'             => __( 'All Albums', 'coverfold' ),
 			'add_new'               => __( 'Add New Album', 'coverfold' ),
 			'add_new_item'          => __( 'Add New Album', 'coverfold' ),
