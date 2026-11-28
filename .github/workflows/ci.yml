@@ -127,11 +127,49 @@ jobs:
           slug: ${{ steps.package.outputs.slug }}
 
 
+  # The pre-submission checks (bin/presubmit/) on the plugin as it ships, in
+  # WordPress Playground: Plugin Check with the experimental checks, and a clean
+  # site with WP_DEBUG on the lowest and newest PHP (activation, block and
+  # shortcode rendering, settings page, Dashboard assets and notices, cron on
+  # deactivation, uninstall cleanup, PHP notices). Fails on any problem.
+  presubmit:
+    name: Pre-submission checks (Playground)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version-file: .nvmrc
+
+      - name: Run the checks
+        run: bin/presubmit/run.sh
+
+      - name: Check the results
+        run: |
+          cd release/presubmit
+          fail() { echo "::error::$1"; failed=1; }
+          failed=0
+          grep -q '^errors=0 warnings=0$' plugin-check.txt || fail "Plugin Check reported errors or warnings."
+          for f in runtime-*.txt; do
+            php=${f#runtime-}; php=${php%.txt}
+            for want in 'activate=ok output_bytes=0' 'inline_style_or_script=no' \
+              'dashboard_plugin_assets=none dashboard_notice_bytes=0' 'cron_after_deactivate=none' \
+              'uninstall_output_bytes=0 options_left=none tables_left=none' 'albums_kept=2' 'plugin_notices=0 '; do
+              grep -qF "$want" "$f" || fail "PHP $php: expected \"$want\" in the runtime results."
+            done
+          done
+          ls runtime-*.txt >/dev/null 2>&1 || fail "No runtime results were written."
+          for log in debug-*.log; do
+            [ -s "$log" ] && { cat "$log"; fail "$log is not empty."; }
+          done
+          exit "$failed"
+
   ci:
     name: CI
     # Runs even when a job above failed, so the required check always reports.
     if: always()
-    needs: [php-lint, phpcs, phpstan, js-css-lint, plugin-check]
+    needs: [php-lint, phpcs, phpstan, js-css-lint, plugin-check, presubmit]
     runs-on: ubuntu-latest
     steps:
       - name: All jobs passed
