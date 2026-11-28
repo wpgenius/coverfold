@@ -4,7 +4,7 @@ Tags: gallery, album, portfolio, lightbox, video gallery
 Requires at least: 6.3
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 2.1.6
+Stable tag: 2.1.7
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -128,6 +128,12 @@ No. Albums are shown only through the block, widget or shortcode. Developers can
 Unminified sources are available at the links above.
 
 == Changelog ==
+
+= 2.1.7 =
+
+* Use the full plugin title in the plugin header and readme.txt (after WordPress.org approval) (#24)
+* Use the full plugin title: CoverFold – Photo & Video Album Gallery (#93)
+* Write the plugin name as CoverFold (#94)
 
 = 2.1.6 =
 

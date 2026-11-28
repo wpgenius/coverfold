@@ -3,7 +3,7 @@
  * Plugin Name:       CoverFold – Photo & Video Album Gallery
  * Plugin URI:        https://github.com/wpgenius/coverfold
  * Description:       Stunning photo and video albums. One cover image opens the full album in a popup, with a filterable grid for Elementor and the block editor.
- * Version:           2.1.6
+ * Version:           2.1.7
  * Requires at least: 6.3
  * Requires PHP:      7.4
  * Author:            Team WPGenius
@@ -17,7 +17,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'COVERFOLD_VERSION', '2.1.6' );
+define( 'COVERFOLD_VERSION', '2.1.7' );
 define( 'COVERFOLD_FILE', __FILE__ );
 define( 'COVERFOLD_PATH', plugin_dir_path( __FILE__ ) );
 define( 'COVERFOLD_URL', plugin_dir_url( __FILE__ ) );
