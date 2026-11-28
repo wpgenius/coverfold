@@ -28,7 +28,7 @@ class Coverfold_Elementor_Legacy_Widget extends Coverfold_Elementor_Widget {
 	 * @return string
 	 */
 	public function get_title() {
-		return esc_html__( 'Coverfold Albums (Album Station)', 'coverfold' );
+		return esc_html__( 'CoverFold Albums (Album Station)', 'coverfold' );
 	}
 
 	/**

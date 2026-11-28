@@ -3,7 +3,7 @@
 	"apiVersion": 3,
 	"name": "coverfold/album-grid",
 	"version": "1.0.0",
-	"title": "Coverfold Albums",
+	"title": "CoverFold Albums",
 	"category": "media",
 	"icon": "format-gallery",
 	"description": "A filterable grid of photo and video albums. Each cover opens the full album in a lightbox.",

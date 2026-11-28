@@ -33,7 +33,7 @@ class Coverfold_Elementor_Widget extends Widget_Base {
 	 * @return string
 	 */
 	public function get_title() {
-		return esc_html__( 'Coverfold Albums', 'coverfold' );
+		return esc_html__( 'CoverFold Albums', 'coverfold' );
 	}
 
 	/**

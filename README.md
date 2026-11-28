@@ -1,12 +1,12 @@
-# Coverfold Album Gallery
+# CoverFold – Photo & Video Album Gallery
 
 **Stunning photo & video albums for WordPress.**
 
 [![Try it in your browser](https://img.shields.io/badge/WordPress_Playground-Try_it_in_your_browser-3858e9?logo=wordpress)](https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/wpgenius/coverfold/main/.wordpress-org/blueprints/blueprint.json)
 
-Coverfold shows a filterable grid of album covers. Click a cover and the whole album (photos, Media Library videos, YouTube, YouTube playlists and Vimeo) opens in a [Foldbox](https://github.com/wpgenius/foldbox) lightbox. Use it as a block editor block, an Elementor widget or the `[coverfold]` shortcode.
+CoverFold shows a filterable grid of album covers. Click a cover and the whole album (photos, Media Library videos, YouTube, YouTube playlists and Vimeo) opens in a [Foldbox](https://github.com/wpgenius/foldbox) lightbox. Use it as a block editor block, an Elementor widget or the `[coverfold]` shortcode.
 
-Coverfold is the successor of Album Station and migrates its albums automatically.
+CoverFold is the successor of Album Station and migrates its albums automatically.
 
 ## Structure
 

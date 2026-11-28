@@ -43,7 +43,7 @@ class Coverfold_Settings {
 	public static function menu() {
 		add_submenu_page(
 			'edit.php?post_type=' . Coverfold_Post_Type::POST_TYPE,
-			__( 'Coverfold Settings', 'coverfold' ),
+			__( 'CoverFold Settings', 'coverfold' ),
 			__( 'Settings', 'coverfold' ),
 			'manage_options',
 			self::PAGE,
@@ -151,7 +151,7 @@ class Coverfold_Settings {
 			</form>
 
 			<h2><?php esc_html_e( 'Shortcode', 'coverfold' ); ?></h2>
-			<p><?php esc_html_e( 'Use the Coverfold block or Elementor widget, or add this shortcode anywhere:', 'coverfold' ); ?></p>
+			<p><?php esc_html_e( 'Use the CoverFold block or Elementor widget, or add this shortcode anywhere:', 'coverfold' ); ?></p>
 			<p><code>[coverfold columns="3" filters="yes" category="weddings,events"]</code></p>
 		</div>
 		<?php

@@ -216,7 +216,7 @@ class Coverfold_Renderer {
 
 		if ( ! $albums ) {
 			if ( current_user_can( 'edit_posts' ) ) {
-				return '<p class="coverfold-empty">' . esc_html__( 'No albums found. Add albums under Coverfold in the dashboard.', 'coverfold' ) . '</p>';
+				return '<p class="coverfold-empty">' . esc_html__( 'No albums found. Add albums under CoverFold in the dashboard.', 'coverfold' ) . '</p>';
 			}
 			return '';
 		}

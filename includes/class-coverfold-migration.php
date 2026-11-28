@@ -410,15 +410,15 @@ class Coverfold_Migration {
 			$message = sprintf(
 				/* translators: %d: number of albums. */
 				_n(
-					'Album Station is still active. Deactivate it to finish switching to Coverfold: your %d album moves over automatically.',
-					'Album Station is still active. Deactivate it to finish switching to Coverfold: your %d albums move over automatically.',
+					'Album Station is still active. Deactivate it to finish switching to CoverFold: your %d album moves over automatically.',
+					'Album Station is still active. Deactivate it to finish switching to CoverFold: your %d albums move over automatically.',
 					$count,
 					'coverfold'
 				),
 				$count
 			);
 		} else {
-			$message = __( 'Album Station is still active, but Coverfold now manages its albums. Deactivate Album Station so your album pages use Coverfold.', 'coverfold' );
+			$message = __( 'Album Station is still active, but CoverFold now manages its albums. Deactivate Album Station so your album pages use CoverFold.', 'coverfold' );
 		}
 
 		printf(
@@ -444,8 +444,8 @@ class Coverfold_Migration {
 			sprintf(
 				/* translators: %d: number of albums. */
 				_n(
-					'Coverfold moved %d album from Album Station. You can now delete Album Station.',
-					'Coverfold moved %d albums from Album Station. You can now delete Album Station.',
+					'CoverFold moved %d album from Album Station. You can now delete Album Station.',
+					'CoverFold moved %d albums from Album Station. You can now delete Album Station.',
 					$moved,
 					'coverfold'
 				),

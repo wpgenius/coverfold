@@ -1,4 +1,4 @@
-=== Coverfold Album Gallery ===
+=== CoverFold – Photo & Video Album Gallery ===
 Contributors: mkrndmane, wpgenius
 Tags: gallery, album, portfolio, lightbox, video gallery
 Requires at least: 6.3
@@ -12,16 +12,16 @@ Stunning photo and video albums. One cover image opens the full album in a popup
 
 == Description ==
 
-**Coverfold** shows your work as a grid of album covers. Click a cover and the whole album opens in a lightbox, with photos and videos side by side.
+**CoverFold** shows your work as a grid of album covers. Click a cover and the whole album opens in a lightbox, with photos and videos side by side.
 
 It suits photographers, studios, agencies, event organisers, schools and anyone who has more pictures than fit on one page.
 
 = How it works =
 
-1. Create an album under **Coverfold → Add New Album**.
+1. Create an album under **CoverFold → Add New Album**.
 2. Set a featured image as the album cover.
 3. Add photos and videos from the Media Library, and paste YouTube or Vimeo links.
-4. Show your albums with the **Coverfold Albums** block, the Elementor widget or the `[coverfold]` shortcode.
+4. Show your albums with the **CoverFold Albums** block, the Elementor widget or the `[coverfold]` shortcode.
 
 = Features =
 
@@ -63,11 +63,11 @@ Example: `[coverfold category="weddings,events" columns="4" filters="yes" count=
 
 = Coming from Album Station? =
 
-Coverfold is the new name of Album Station. Coverfold moves your albums, categories, videos and YouTube API key over automatically once Album Station is deactivated: right away if it already is when you activate Coverfold, otherwise as soon as you deactivate it. While Album Station is still active, a notice reminds you to deactivate it. Pages built with the old Elementor widget or the `[feature_album]` shortcode keep working. After the move you can delete Album Station.
+CoverFold is the new name of Album Station. CoverFold moves your albums, categories, videos and YouTube API key over automatically once Album Station is deactivated: right away if it already is when you activate CoverFold, otherwise as soon as you deactivate it. While Album Station is still active, a notice reminds you to deactivate it. Pages built with the old Elementor widget or the `[feature_album]` shortcode keep working. After the move you can delete Album Station.
 
 == External services ==
 
-Coverfold connects to these services only when an album contains the matching video links:
+CoverFold connects to these services only when an album contains the matching video links:
 
 * **YouTube** – Thumbnails load from `i.ytimg.com` when a visitor opens an album, and videos play in an embedded YouTube player (`youtube-nocookie.com`) once the visitor presses play. For YouTube playlists, your site calls the YouTube Data API (`googleapis.com`) with your API key and the playlist ID to list the videos; results are cached for 12 hours. [YouTube Terms of Service](https://www.youtube.com/t/terms), [Google Privacy Policy](https://policies.google.com/privacy).
 * **Vimeo** – Your site calls Vimeo's oEmbed endpoint (`vimeo.com/api/oembed.json`) with the video URL to get its title and thumbnail; results are cached for 12 hours. Thumbnails load from `i.vimeocdn.com` when a visitor opens an album, and videos play in an embedded Vimeo player (`player.vimeo.com`) once the visitor presses play. [Vimeo Terms of Service](https://vimeo.com/terms), [Vimeo Privacy Policy](https://vimeo.com/privacy).
@@ -78,10 +78,10 @@ Thumbnails and embedded players are loaded directly by the visitor's browser, so
 
 == Installation ==
 
-1. Install Coverfold from **Plugins → Add New**, or upload the `coverfold` folder to `/wp-content/plugins/`.
+1. Install CoverFold from **Plugins → Add New**, or upload the `coverfold` folder to `/wp-content/plugins/`.
 2. Activate the plugin.
-3. Go to **Coverfold → Add New Album** and create your first album.
-4. Add the **Coverfold Albums** block to a page, use the Elementor widget, or paste `[coverfold]`.
+3. Go to **CoverFold → Add New Album** and create your first album.
+4. Add the **CoverFold Albums** block to a page, use the Elementor widget, or paste `[coverfold]`.
 
 == Frequently Asked Questions ==
 
@@ -91,7 +91,7 @@ Videos uploaded to the Media Library (MP4 or WebM), YouTube videos, YouTube play
 
 = Do I need a YouTube API key? =
 
-Only for YouTube playlists. Single YouTube and Vimeo videos work without a key. Add the key under **Coverfold → Settings**.
+Only for YouTube playlists. Single YouTube and Vimeo videos work without a key. Add the key under **CoverFold → Settings**.
 
 = Can I put videos before the photos? =
 
@@ -107,7 +107,7 @@ From the album's featured image. If there is none, the first photo in the album 
 
 = Does it work with my theme? =
 
-Yes. Coverfold uses its own small stylesheet and works with any theme. Colours can be changed in the Elementor widget, or with CSS custom properties such as `--coverfold-accent`.
+Yes. CoverFold uses its own small stylesheet and works with any theme. Colours can be changed in the Elementor widget, or with CSS custom properties such as `--coverfold-accent`.
 
 = Are the albums public pages? =
 
@@ -118,7 +118,7 @@ No. Albums are shown only through the block, widget or shortcode. Developers can
 1. Album grid with category filters.
 2. An album open in the lightbox, with thumbnails.
 3. Editing an album: drag-and-drop photos and videos, and video links.
-4. The Coverfold Albums block settings.
+4. The CoverFold Albums block settings.
 5. The Elementor widget.
 
 == Third-party libraries ==
@@ -214,4 +214,4 @@ Unminified sources are available at the links above.
 == Upgrade Notice ==
 
 = 1.0.0 =
-Album Station is now Coverfold. Your albums move over automatically when you activate Coverfold.
+Album Station is now CoverFold. Your albums move over automatically when you activate CoverFold.
